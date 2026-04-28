@@ -1,4 +1,4 @@
-import { LayoutDashboard, ShoppingCart, Package, Settings, Users, ArrowLeftRight, Printer } from 'lucide-react';
+import { LayoutDashboard, ShoppingCart, Package, Settings, Users, ArrowLeftRight, Printer, BookOpen } from 'lucide-react';
 import { UserRole } from '../types';
 import { cn } from '../lib/utils';
 
@@ -15,6 +15,7 @@ export default function Sidebar({ currentRole, activeView, setActiveView, isOpen
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, roles: [UserRole.ADMIN] },
     { id: 'pos', label: 'Punto de Venta', icon: ShoppingCart, roles: [UserRole.ADMIN, UserRole.CAJERO] },
     { id: 'inventory', label: 'Inventario', icon: Package, roles: [UserRole.ADMIN, UserRole.GERENTE] },
+    { id: 'manual', label: 'Manual/Ayuda', icon: BookOpen, roles: [UserRole.ADMIN, UserRole.GERENTE, UserRole.CAJERO] },
     { id: 'transactions', label: 'Transacciones', icon: ArrowLeftRight, roles: [UserRole.ADMIN, UserRole.GERENTE] },
     { id: 'users', label: 'Personal', icon: Users, roles: [UserRole.ADMIN] },
     { id: 'settings', label: 'Configuración', icon: Settings, roles: [UserRole.ADMIN] },

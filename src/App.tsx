@@ -5,6 +5,7 @@ import Header from './components/Header';
 import DashboardView from './components/DashboardView';
 import POSView from './components/POSView';
 import InventoryView from './components/InventoryView';
+import ManualView from './components/ManualView';
 import { AnimatePresence, motion } from 'motion/react';
 
 export default function App() {
@@ -31,6 +32,8 @@ export default function App() {
         return <POSView showPrinterConfig={showPrinterConfig} />;
       case 'inventory':
         return <InventoryView />;
+      case 'manual':
+        return <ManualView />;
       default:
         return <DashboardView />;
     }
