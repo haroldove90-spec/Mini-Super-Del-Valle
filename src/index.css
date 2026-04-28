@@ -14,7 +14,7 @@
 }
 
 .pixel-perfect-height {
-  height: calc(100vh - 4rem); /* Viewport minus header */
+  height: calc(100vh - 6rem); /* Viewport minus header (h-24) */
 }
 
 .rounded-huge {
