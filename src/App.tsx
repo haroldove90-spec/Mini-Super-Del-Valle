@@ -11,6 +11,7 @@ export default function App() {
   const [currentRole, setRole] = useState<UserRole>(UserRole.ADMIN);
   const [activeView, setActiveView] = useState('dashboard');
   const [showPrinterConfig, setShowPrinterConfig] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Ensure that if role changes and the current view is not allowed, we switch to an allowed one
   const handleRoleChange = (role: UserRole) => {
@@ -36,29 +37,35 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-slate-50 overflow-hidden font-sans">
+    <div className="flex h-screen bg-bg-light overflow-hidden font-sans relative">
       <Sidebar 
         currentRole={currentRole} 
         activeView={activeView} 
-        setActiveView={setActiveView} 
+        setActiveView={(view) => {
+          setActiveView(view);
+          setIsSidebarOpen(false);
+        }} 
+        isOpen={isSidebarOpen}
+        setIsOpen={setIsSidebarOpen}
       />
       
-      <main className="flex-1 flex flex-col min-w-0 relative">
+      <main className="flex-1 flex flex-col min-w-0 relative h-screen overflow-hidden">
         <Header 
           currentRole={currentRole} 
           setRole={handleRoleChange} 
           showPrinterConfig={showPrinterConfig}
           setShowPrinterConfig={setShowPrinterConfig}
+          toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
         />
         
         <div className="flex-1 overflow-hidden relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeView + currentRole}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
               className="h-full w-full"
             >
               {renderView()}
@@ -66,10 +73,10 @@ export default function App() {
           </AnimatePresence>
         </div>
 
-        {/* Global UI Decoration (Subtle Premium Touch) */}
-        <div className="absolute bottom-0 right-0 p-4 pointer-events-none opacity-20">
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200">
-            MiniSuper Pro v1.0.4 • Build 829
+        {/* Global UI Decoration (Subtle Brand Touch) */}
+        <div className="absolute bottom-0 right-0 p-4 pointer-events-none opacity-40">
+          <span className="text-[9px] font-black text-brand-green uppercase tracking-[0.3em] bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full border border-slate-200 shadow-sm italic">
+            Minisuper del Valle • Enterprise v2.0
           </span>
         </div>
       </main>

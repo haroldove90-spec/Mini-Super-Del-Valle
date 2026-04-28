@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #10b981; /* emerald-500 */
-  --color-accent: #34d399; /* emerald-400 */
-  --color-sidebar: #0f172a; /* slate-900 */
-  --color-surface: #f8fafc; /* slate-50 */
+  --color-brand-green: #22c55e;
+  --color-brand-red: #ef4444;
+  --color-brand-black: #000000;
+  --color-bg-light: #f9fafb;
 }
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-800 antialiased overflow-hidden font-sans;
+    @apply bg-bg-light text-slate-900 antialiased overflow-hidden font-sans;
   }
 }
 
