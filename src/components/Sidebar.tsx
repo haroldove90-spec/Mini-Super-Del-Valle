@@ -32,14 +32,14 @@ export default function Sidebar({ currentRole, activeView, setActiveView, isOpen
         onClick={() => setIsOpen(false)}
       />
       <aside className={cn(
-        "fixed inset-y-0 left-0 lg:static w-72 bg-brand-green text-white flex flex-col h-screen shadow-2xl z-50 transition-transform duration-300",
+        "fixed inset-y-0 left-0 lg:static w-64 xl:w-72 bg-brand-green text-white flex flex-col h-screen shadow-2xl z-50 transition-transform duration-300",
         isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}>
         <div className="p-6 border-b border-white/10 flex justify-center">
           <img 
             src="https://cossma.com.mx/delvalle.jpeg" 
             alt="Minisuper del Valle" 
-            className="w-full h-auto object-contain max-h-24 brightness-0 invert"
+            className="w-full h-auto object-contain"
             referrerPolicy="no-referrer"
           />
         </div>

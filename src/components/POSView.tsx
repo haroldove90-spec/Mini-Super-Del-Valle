@@ -154,7 +154,7 @@ export default function POSView({ showPrinterConfig }: POSViewProps) {
           </div>
         </div>
 
-        <div className="flex-1 overflow-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 pb-6 scrollbar-hide">
+        <div className="flex-1 overflow-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-6 pb-6 scrollbar-hide">
           {filteredProducts.map((product) => (
             <motion.button
               whileTap={{ scale: 0.98 }}
@@ -182,7 +182,7 @@ export default function POSView({ showPrinterConfig }: POSViewProps) {
       </div>
 
       {/* Right Area: Cart & Checkout */}
-      <div className="w-[480px] bg-white border-l border-slate-100 flex flex-col shrink-0 overflow-hidden shadow-2xl z-20">
+      <div className="w-full lg:w-80 xl:w-[400px] 2xl:w-[480px] bg-white border-l border-slate-100 flex flex-col shrink-0 overflow-hidden shadow-2xl z-20">
         <div className="p-8 border-b border-slate-50 flex items-center justify-between shrink-0 bg-white">
           <div className="flex items-center gap-3">
             <div className="p-2.5 bg-black rounded-2xl shadow-lg">
